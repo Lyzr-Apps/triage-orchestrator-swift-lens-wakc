@@ -25,7 +25,7 @@ import {
   FiCpu,
   FiActivity,
   FiBarChart2,
-  FiHistory,
+  FiRotateCcw,
   FiSearch,
   FiX,
   FiCheck,
@@ -269,7 +269,7 @@ function Sidebar({ activeView, onNavigate }: { activeView: string; onNavigate: (
               : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
           )}
         >
-          <FiHistory className="w-4 h-4" />
+          <FiRotateCcw className="w-4 h-4" />
           Analysis History
         </button>
       </nav>
@@ -997,7 +997,7 @@ export default function Page() {
                 {filteredHistory.length === 0 ? (
                   <div className="flex flex-col items-center justify-center py-20 text-center">
                     <div className="w-12 h-12 rounded bg-secondary flex items-center justify-center mb-3">
-                      <FiHistory className="w-6 h-6 text-muted-foreground" />
+                      <FiRotateCcw className="w-6 h-6 text-muted-foreground" />
                     </div>
                     <h3 className="text-sm font-medium text-foreground mb-1">
                       {history.length === 0 ? 'No Analyses Yet' : 'No Matching Results'}
