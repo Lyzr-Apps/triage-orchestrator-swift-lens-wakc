@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {"id": "input_node", "type": "Input", "label": "Support Conversation", "nodeCategory": "input"},
+    {"id": "manager_agent", "type": "Agent", "label": "Triage Intelligence Orchestrator", "nodeCategory": "agent"},
+    {"id": "intent_agent", "type": "Agent", "label": "Intent Classification Agent", "nodeCategory": "agent"},
+    {"id": "urgency_agent", "type": "Agent", "label": "Urgency Detection Agent", "nodeCategory": "agent"},
+    {"id": "sla_agent", "type": "Agent", "label": "SLA Risk Estimation Agent", "nodeCategory": "agent"},
+    {"id": "routing_agent", "type": "Agent", "label": "Routing Recommendation Agent", "nodeCategory": "agent"},
+    {"id": "output_node", "type": "Output", "label": "Triage Report", "nodeCategory": "end"}
+  ],
+  "edges": [
+    {"source": "input_node", "target": "manager_agent"},
+    {"source": "manager_agent", "target": "intent_agent"},
+    {"source": "manager_agent", "target": "urgency_agent"},
+    {"source": "manager_agent", "target": "sla_agent"},
+    {"source": "manager_agent", "target": "routing_agent"},
+    {"source": "manager_agent", "target": "output_node"}
+  ],
+  "agents": {
+    "manager_agent": {
+      "agent_id": "69946ae4b3f7b0df4d40bf76",
+      "name": "Triage Intelligence Orchestrator",
+      "type": "manager",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5",
+      "temperature": 0.2,
+      "top_p": 1,
+      "managed_agents": [
+        "69946ac9b3f7b0df4d40bf6c",
+        "69946ac993f56833122ab5b1",
+        "69946ac970f8b59789c57234",
+        "69946acab3f7b0df4d40bf6e"
+      ]
+    },
+    "intent_agent": {
+      "agent_id": "69946ac9b3f7b0df4d40bf6c",
+      "name": "Intent Classification Agent",
+      "type": "sub-agent",
+      "provider": "openai",
+      "model": "gpt-4.1",
+      "temperature": 0.2,
+      "top_p": 1
+    },
+    "urgency_agent": {
+      "agent_id": "69946ac993f56833122ab5b1",
+      "name": "Urgency Detection Agent",
+      "type": "sub-agent",
+      "provider": "google",
+      "model": "gemini-2.5-pro",
+      "temperature": 0.3,
+      "top_p": 1
+    },
+    "sla_agent": {
+      "agent_id": "69946ac970f8b59789c57234",
+      "name": "SLA Risk Estimation Agent",
+      "type": "sub-agent",
+      "provider": "openai",
+      "model": "gpt-4.1",
+      "temperature": 0.2,
+      "top_p": 1
+    },
+    "routing_agent": {
+      "agent_id": "69946acab3f7b0df4d40bf6e",
+      "name": "Routing Recommendation Agent",
+      "type": "sub-agent",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5",
+      "temperature": 0.3,
+      "top_p": 0.95
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "agent_name": "Triage Intelligence Orchestrator",
+  "agent_id": "69946ae4b3f7b0df4d40bf76",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "TriageReport",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "executive_summary": {"type": "string"},
+          "intent_classification": {
+            "type": "object",
+            "properties": {
+              "primary_intent": {"type": "string"},
+              "primary_confidence": {"type": "number"},
+              "secondary_intents": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "intent": {"type": "string"},
+                    "confidence": {"type": "number"}
+                  },
+                  "required": ["intent", "confidence"],
+                  "additionalProperties": false
+                }
+              },
+              "classification_reasoning": {"type": "string"},
+              "key_signals": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            },
+            "required": ["primary_intent", "primary_confidence", "secondary_intents", "classification_reasoning", "key_signals"],
+            "additionalProperties": false
+          },
+          "urgency_assessment": {
+            "type": "object",
+            "properties": {
+              "urgency_level": {"type": "string"},
+              "urgency_score": {"type": "number"},
+              "signals_detected": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "signal_type": {"type": "string"},
+                    "description": {"type": "string"},
+                    "severity": {"type": "string"}
+                  },
+                  "required": ["signal_type", "description", "severity"],
+                  "additionalProperties": false
+                }
+              },
+              "reasoning": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "emotional_tone": {"type": "string"},
+              "business_impact": {"type": "string"}
+            },
+            "required": ["urgency_level", "urgency_score", "signals_detected", "reasoning", "emotional_tone", "business_impact"],
+            "additionalProperties": false
+          },
+          "sla_risk": {
+            "type": "object",
+            "properties": {
+              "breach_probability": {"type": "number"},
+              "risk_level": {"type": "string"},
+              "recommended_response_window_hours": {"type": "number"},
+              "recommended_resolution_window_hours": {"type": "number"},
+              "risk_factors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "factor": {"type": "string"},
+                    "impact": {"type": "string"},
+                    "details": {"type": "string"}
+                  },
+                  "required": ["factor", "impact", "details"],
+                  "additionalProperties": false
+                }
+              },
+              "mitigation_recommendations": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            },
+            "required": ["breach_probability", "risk_level", "recommended_response_window_hours", "recommended_resolution_window_hours", "risk_factors", "mitigation_recommendations"],
+            "additionalProperties": false
+          },
+          "routing_recommendation": {
+            "type": "object",
+            "properties": {
+              "target_team": {"type": "string"},
+              "tier": {"type": "string"},
+              "priority_level": {"type": "string"},
+              "priority_reasoning": {"type": "string"},
+              "suggested_next_actions": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "escalation_needed": {"type": "boolean"},
+              "escalation_path": {"type": "string"},
+              "tags": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            },
+            "required": ["target_team", "tier", "priority_level", "priority_reasoning", "suggested_next_actions", "escalation_needed", "escalation_path", "tags"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["executive_summary", "intent_classification", "urgency_assessment", "sla_risk", "routing_recommendation"],
+        "additionalProperties": false
+      }
+    }
+  }
+}

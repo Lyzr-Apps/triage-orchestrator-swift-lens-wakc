@@ -1,0 +1,42 @@
+{
+  "agent_name": "SLA Risk Estimation Agent",
+  "agent_id": "69946ac970f8b59789c57234",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "SLARiskEstimationResponse",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "breach_probability": {"type": "number"},
+          "risk_level": {"type": "string"},
+          "recommended_response_window_hours": {"type": "number"},
+          "recommended_resolution_window_hours": {"type": "number"},
+          "risk_factors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "factor": {"type": "string"},
+                "impact": {"type": "string"},
+                "details": {"type": "string"}
+              },
+              "required": ["factor", "impact", "details"],
+              "additionalProperties": false
+            }
+          },
+          "mitigation_recommendations": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        },
+        "required": ["breach_probability", "risk_level", "recommended_response_window_hours", "recommended_resolution_window_hours", "risk_factors", "mitigation_recommendations"],
+        "additionalProperties": false
+      }
+    }
+  }
+}

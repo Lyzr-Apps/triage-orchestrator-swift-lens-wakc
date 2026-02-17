@@ -1,0 +1,134 @@
+{
+  "agent_name": "Triage Intelligence Orchestrator",
+  "agent_id": "69946ae4b3f7b0df4d40bf76",
+  "description": "Coordinates four sub-agents to produce a unified triage report analyzing intent, urgency, SLA risk, and routing for support conversations",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "executive_summary": "string",
+    "intent_classification": {
+      "primary_intent": "string",
+      "primary_confidence": "number",
+      "secondary_intents": [
+        {
+          "intent": "string",
+          "confidence": "number"
+        }
+      ],
+      "classification_reasoning": "string",
+      "key_signals": [
+        "string"
+      ]
+    },
+    "urgency_assessment": {
+      "urgency_level": "string",
+      "urgency_score": "number",
+      "signals_detected": [
+        {
+          "signal_type": "string",
+          "description": "string",
+          "severity": "string"
+        }
+      ],
+      "reasoning": [
+        "string"
+      ],
+      "emotional_tone": "string",
+      "business_impact": "string"
+    },
+    "sla_risk": {
+      "breach_probability": "number",
+      "risk_level": "string",
+      "recommended_response_window_hours": "number",
+      "recommended_resolution_window_hours": "number",
+      "risk_factors": [
+        {
+          "factor": "string",
+          "impact": "string",
+          "details": "string"
+        }
+      ],
+      "mitigation_recommendations": [
+        "string"
+      ]
+    },
+    "routing_recommendation": {
+      "target_team": "string",
+      "tier": "string",
+      "priority_level": "string",
+      "priority_reasoning": "string",
+      "suggested_next_actions": [
+        "string"
+      ],
+      "escalation_needed": "boolean",
+      "escalation_path": "string",
+      "tags": [
+        "string"
+      ]
+    }
+  },
+  "example_response": {
+    "executive_summary": "sample string",
+    "intent_classification": {
+      "primary_intent": "sample string",
+      "primary_confidence": 0,
+      "secondary_intents": [
+        {
+          "intent": "sample string",
+          "confidence": 0
+        }
+      ],
+      "classification_reasoning": "sample string",
+      "key_signals": [
+        "sample string"
+      ]
+    },
+    "urgency_assessment": {
+      "urgency_level": "sample string",
+      "urgency_score": 0,
+      "signals_detected": [
+        {
+          "signal_type": "sample string",
+          "description": "sample string",
+          "severity": "sample string"
+        }
+      ],
+      "reasoning": [
+        "sample string"
+      ],
+      "emotional_tone": "sample string",
+      "business_impact": "sample string"
+    },
+    "sla_risk": {
+      "breach_probability": 0,
+      "risk_level": "sample string",
+      "recommended_response_window_hours": 0,
+      "recommended_resolution_window_hours": 0,
+      "risk_factors": [
+        {
+          "factor": "sample string",
+          "impact": "sample string",
+          "details": "sample string"
+        }
+      ],
+      "mitigation_recommendations": [
+        "sample string"
+      ]
+    },
+    "routing_recommendation": {
+      "target_team": "sample string",
+      "tier": "sample string",
+      "priority_level": "sample string",
+      "priority_reasoning": "sample string",
+      "suggested_next_actions": [
+        "sample string"
+      ],
+      "escalation_needed": false,
+      "escalation_path": "sample string",
+      "tags": [
+        "sample string"
+      ]
+    }
+  }
+}

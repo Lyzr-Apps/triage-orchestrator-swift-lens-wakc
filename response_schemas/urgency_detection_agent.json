@@ -1,0 +1,42 @@
+{
+  "agent_name": "Urgency Detection Agent",
+  "agent_id": "69946ac993f56833122ab5b1",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "UrgencyDetectionResponse",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "urgency_level": {"type": "string"},
+          "urgency_score": {"type": "number"},
+          "signals_detected": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "signal_type": {"type": "string"},
+                "description": {"type": "string"},
+                "severity": {"type": "string"}
+              },
+              "required": ["signal_type", "description", "severity"],
+              "additionalProperties": false
+            }
+          },
+          "reasoning": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "emotional_tone": {"type": "string"},
+          "business_impact": {"type": "string"}
+        },
+        "required": ["urgency_level", "urgency_score", "signals_detected", "reasoning", "emotional_tone", "business_impact"],
+        "additionalProperties": false
+      }
+    }
+  }
+}

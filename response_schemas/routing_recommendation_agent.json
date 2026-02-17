@@ -1,0 +1,35 @@
+{
+  "agent_name": "Routing Recommendation Agent",
+  "agent_id": "69946acab3f7b0df4d40bf6e",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "RoutingRecommendationResponse",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "target_team": {"type": "string"},
+          "tier": {"type": "string"},
+          "priority_level": {"type": "string"},
+          "priority_reasoning": {"type": "string"},
+          "suggested_next_actions": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "escalation_needed": {"type": "boolean"},
+          "escalation_path": {"type": "string"},
+          "tags": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        },
+        "required": ["target_team", "tier", "priority_level", "priority_reasoning", "suggested_next_actions", "escalation_needed", "escalation_path", "tags"],
+        "additionalProperties": false
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "agent_name": "Intent Classification Agent",
+  "agent_id": "69946ac9b3f7b0df4d40bf6c",
+  "agent_type": "json",
+  "accessor": "json",
+  "has_module_outputs": false,
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "IntentClassificationResponse",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "primary_intent": {"type": "string"},
+          "primary_confidence": {"type": "number"},
+          "secondary_intents": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "intent": {"type": "string"},
+                "confidence": {"type": "number"}
+              },
+              "required": ["intent", "confidence"],
+              "additionalProperties": false
+            }
+          },
+          "classification_reasoning": {"type": "string"},
+          "key_signals": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        },
+        "required": ["primary_intent", "primary_confidence", "secondary_intents", "classification_reasoning", "key_signals"],
+        "additionalProperties": false
+      }
+    }
+  }
+}

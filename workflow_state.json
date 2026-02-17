@@ -1,0 +1,46 @@
+{
+  "agents": {
+    "triage_intelligence_orchestrator": {
+      "agent_id": "69946ae4b3f7b0df4d40bf76",
+      "name": "Triage Intelligence Orchestrator",
+      "type": "manager",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5"
+    },
+    "intent_classification_agent": {
+      "agent_id": "69946ac9b3f7b0df4d40bf6c",
+      "name": "Intent Classification Agent",
+      "type": "sub-agent",
+      "provider": "openai",
+      "model": "gpt-4.1"
+    },
+    "urgency_detection_agent": {
+      "agent_id": "69946ac993f56833122ab5b1",
+      "name": "Urgency Detection Agent",
+      "type": "sub-agent",
+      "provider": "google",
+      "model": "gemini-2.5-pro"
+    },
+    "sla_risk_estimation_agent": {
+      "agent_id": "69946ac970f8b59789c57234",
+      "name": "SLA Risk Estimation Agent",
+      "type": "sub-agent",
+      "provider": "openai",
+      "model": "gpt-4.1"
+    },
+    "routing_recommendation_agent": {
+      "agent_id": "69946acab3f7b0df4d40bf6e",
+      "name": "Routing Recommendation Agent",
+      "type": "sub-agent",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5"
+    }
+  },
+  "manager_agent_id": "69946ae4b3f7b0df4d40bf76",
+  "sub_agent_ids": [
+    "69946ac9b3f7b0df4d40bf6c",
+    "69946ac993f56833122ab5b1",
+    "69946ac970f8b59789c57234",
+    "69946acab3f7b0df4d40bf6e"
+  ]
+}
