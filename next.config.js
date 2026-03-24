@@ -51,6 +51,7 @@ const nextConfig = {
       '@radix-ui/react-tooltip',
       'recharts',
       'date-fns',
+      'react-icons',
     ],
   },
 }
